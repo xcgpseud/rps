@@ -17,6 +17,14 @@ defmodule Rochambo.Server do
     GenServer.call({:global, :game}, :get_players)
   end
 
+  def play(hand) do
+    GenServer.call({:global, :game}, {:play, hand})
+  end
+
+  def scores() do
+    GenServer.call({:global, :game}, :scores)
+  end
+
   # -- Server Functions -- #
 
   @impl true
